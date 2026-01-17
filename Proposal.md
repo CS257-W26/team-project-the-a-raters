@@ -13,7 +13,7 @@ Clean water & sanitation
 ## Feature 1: Interactable Global Map
 
 * Person responsible: Lloyd
-* User story: I click on Canada and type in 2020 and view that Canada's 
+* User story: I click on Canada and type in 2020 and view that Canada's agricultural water withdrawal as % of total renewable water resources was 0.13298%
 * Acceptance Criteria:
 
 ## Feature 2: Interactable Visual Graphss
