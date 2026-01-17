@@ -15,21 +15,24 @@ I don’t think I’m currently familiar enough with CLIs to say I can confirmed
 * Note-taker: Lloyd
 
 ## Sprint 2
-* Organizer:
-* Gluer:
-* Researcher:
-* Ambassador:
-* Note-taker:
+* Organizer: Paul
+* Gluer: Lloyd
+* Researcher: Lloyd
+* Ambassador: Jay
+* Note-taker: Paul
 
 ## Plan for subsequent sprints
 Stick with same roles from sprint 2 or continue to rotate?
+Hopefully we will settle upon a dynamic we all enjoy so we don't need to keep switching.
 
 # Meetings
 ## Weekly Meeting
-Tuesday and/or Thursday, 4:00PM, 4th floor of Libe
+Tuesday and/or Thursday, 4:00PM, 4th floor of Libe. Thursday primary
 Weekends as needed, time to be communicated, 4th floor of Libe
+
 ## Drop-in hour options
-M 1-3, W 2-3, TH 2:30-3:30
+Thursday 2:30-3:30 
+
 # Communication
 * Mostly via group text
 Jay - 703 887 6450
@@ -37,7 +40,7 @@ Lloyd Stohler - 314 327 6698
 Paul - 213 603 0914
 
 * Email is also to be used.
-* Meetings need to be attended by all participants.
+* Meetings need to be attended by all participants (unless decided otherwise communaly)
 
 # Conflict resolution
 * Decisions made by Collective Consensus
