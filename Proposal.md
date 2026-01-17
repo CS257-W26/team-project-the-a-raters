@@ -23,7 +23,6 @@ Clean water & sanitation
 * Acceptance Criteria: A functional feature where the user can compare the type of water consumption to water source. The user can change the time and location. The comparisons will be displayed through visual graphs/charts.  
 
 ## Feature 3: Small Dictionary of Terminology
-
 * Person responsible: Jay
 * User story: Click on the term "groundwater" and it tells you "Groundwater is the water present beneath Earth's surface in rock and soil pore spaces and in the fractures of rock formations" (taken from wikipedia, i assume wed write our own definitions)
 * Acceptance Criteria: A feature where you click on a specific term that is used in this project (such as "industrial usage", "agricultural usage", "surface water", "ground water", etc.) and gives you it's cooresponding definition
