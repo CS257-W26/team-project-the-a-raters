@@ -46,5 +46,6 @@ Name: Global Water Consumption Dataset (2000-2024) 🌍💧
 Terms and Conditions: CC0:Public Domain
 
 # Mock up
+Sketches have been included.
 
 # Data story
