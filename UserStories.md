@@ -1,0 +1,1 @@
+As a user, I can provide a year, location, and two industries, and the CLI/website will provide a comparison of the % water usage in that time and place.

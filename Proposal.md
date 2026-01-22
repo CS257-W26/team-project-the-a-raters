@@ -10,11 +10,11 @@ Clean water & sanitation
 * Interactable Global Map w/ data
 * Small dictionary (not the coding kind, the kind where you ask about the meanings of terms)
 
-## Feature 1: Interactable Global Map
+## Feature 1: Identify proportonality of country's water usage
 
 * Person responsible: Lloyd
-* User story: I click on Canada and view that as of the most recent data, Canada's agricultural water withdrawal as % of total renewable water resources was 0.13298%
-* Acceptance Criteria: A feature where the user can go and click on a country on an interactable map and it will provide the most up-to-date data for the counry's water data (agricultural withdrawal, indusrial use efficiency, irrigation use efficiency, service use efficiency, overall water use efficiency, produced desalinated water, direct usage of agricultural drainage, direct use of treated municipal water, usage of fresh groundwater, usage of fresh surface water)
+* User story: I input Canada to see what percentage of it's water is going to Agricultutal usage, Industrial usage and Household usage and find that the cooresponding percentages for the most recent year are 57%, 26.7%, 26.4%
+* Acceptance Criteria: User can input "country usage_breakdown" and it responds with the dats (accurate for the current year) of "Agricultral: []%, Industrial: []%, Household: []%
 
 ## Feature 2: Interactable Visual Graphss
 
