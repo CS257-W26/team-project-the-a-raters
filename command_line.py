@@ -21,8 +21,18 @@ import csv
 
 def main():
     '''Main.'''
-    print(loadCountryCGWC(openCGWC(),"Argentina"))
-    #print(stering)
+
+    '''I've mostly just been doing tests here. 
+    This whole section is pretty much to make sure the code I'm writing works'''
+    countrydata = loadCountry(openCGWC(),"Argentina")
+    print(countrydata)
+    print("0000000000000000000000")
+    yeardata = loadYear(openCGWC(),"2004")
+    print(yeardata)
+    print("0000000000000000000000")
+    doubledata = loadYear(loadCountry(openCGWC(),"Argentina"),"2004")
+    print(doubledata)
+   
 
 def openCGWC():
     '''Returns an array for cleaned_global_water_consumption 2.csv'''
@@ -34,7 +44,7 @@ def openCGWC():
         return(arr)
 
     
-def loadCountryCGWC(readera,country):
+def loadCountry(readera,country):
     '''Gets all data for a specific country in an array'''
 
     # NOTE: THIS ONLY WORKS IF THE COUNTRY IS IN COLUMN ZERO. I'M NOT SURE HOW TO FIX THIS ISSUE
@@ -44,7 +54,15 @@ def loadCountryCGWC(readera,country):
             arr.append(row)
     return(arr)
 
+def loadYear(readera,year):
+    '''Gets all data for a specific year in an array'''
 
+    # NOTE: THIS ONLY WORKS IF THE YEAR IS IN COLUMN ONE. I'M NOT SURE HOW TO FIX THIS ISSUE
+    arr = []
+    for row in readera:
+        if row[1] == year:
+            arr.append(row)
+    return(arr)
 
 
 
