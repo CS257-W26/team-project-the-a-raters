@@ -12,12 +12,18 @@ This will be the entry point for the project when run from the command line.
 '''Function for getting the data in the column "Household Water Use (%)"'''
 import csv
 import sys
-
+from enum import Enum
 #FUNCTION 2
 
 #FUNCTION 3
 
 #MAIN
+class DB(Enum):
+    AQS_DS3 = "Data/AQUASTAT Dissemination System (3).csv"
+    AQS_DS6 = "Data/AQUASTAT Dissemination System (6).csv"
+    AQS_WR = "Data/AQUASTAT-Water Resources.csv"
+    AQS_WU = "Data/AQUASTAT-Water Use.csv"
+    CLEANED_GWC = "Data/cleaned_global_water_consumption 2.csv"
 
 def main():
     if len(sys.argv) <= 1:
@@ -147,22 +153,18 @@ def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress.
 def alias(var: str) -> str:
     """Used to make it so that country names don't have to be input perfectly."""
     match var.lower():
-        case "usa":
-            return "United States of America"
-        case "us":
-            return "United States of America"
-        case "united states":
-            return "United States of America"
-        case "united states of america":
-            return "United States of America"
-        case "america":
+        case "usa" | "us" | "united states" | "united states of america" | "america":
             return "United States of America"
         case "uk" | "UK" | "united kingdom":
             return "United Kingdom:"
         case _:
             return var
 
+
+
+    
 def loadByTags(tags: []): 
+    """"""
     arr = []
     with open('Data/AQUASTAT-Water Resources.csv',newline='') as csvfile:
         reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
