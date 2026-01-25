@@ -54,13 +54,11 @@ def main():
     '''I've mostly just been doing tests here. 
     This whole section is pretty much to make sure the code I'm writing works'''
     countrydata = loadCountry(openCGWC(),"Argentina")
-    print(countrydata)
-    print("0000000000000000000000")
+    #print(countrydata)
     yeardata = loadYear(openCGWC(),"2004")
-    print(yeardata)
-    print("0000000000000000000000")
+    #print(yeardata)
     doubledata = loadYear(loadCountry(openCGWC(),"Argentina"),"2004")
-    print(doubledata)
+    #print(doubledata)
    
 
 def openCGWC():
