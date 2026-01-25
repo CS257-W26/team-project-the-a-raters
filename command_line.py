@@ -67,7 +67,7 @@ def main():
 def openDB(database: DB):
     '''Returns an array for the spesificed database. EG: openDB(DB.AQS_DS3)'''
     arr = []
-    with open(database,newline='') as csvfile:
+    with open(database.value,newline='') as csvfile:
         reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
         for row in reader:
             arr.append(row)
@@ -126,15 +126,17 @@ def get_per_capita_water_use(country: str, year: str) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    results = filterTagsDB(DB.CLEANED_GWC, [country, year])
+    data = openDB(DB.CLEANED_GWC)
 
-    if not results:
-        raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
+    # Skip header row
+    for row in data[1:]:
+        if row[0] == country and row[1] == year: # match country and year
+            try:
+                return float(row[3])  # 4th column for per capita water use
+            except ValueError:
+                raise ValueError("Per capita value is missing or invalid.")
 
-    try:
-        return float(results[0][3])
-    except (ValueError, IndexError):
-        raise ValueError("Per capita value is missing or invalid.")
+    raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
     '''Returns percentage for usage for a given country and year'''
