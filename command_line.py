@@ -47,7 +47,7 @@ def main():
                 print(f"{alias(sys.argv[2])}'s Water Usage per Capita: {round(value, 2)} Liters per day")
             except ValueError as e:
                 print(e)
-        case "usagepercentage":
+        case "-usagepercentage":
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
         case _:
@@ -115,7 +115,7 @@ def filterByTags(db:[],tags: []):
 
 def filterTagsDB(database: DB, tags: []):
     """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
-    arr = openDB(database.value)
+    arr = openDB(database)
     return filterByTags(arr,tags)
 
 def get_per_capita_water_use(country: str, year: str) -> float:
@@ -155,19 +155,20 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
                 try:
                     return float(row[4])  
                 except ValueError:
-                    raise ValueError("Per capita value is missing or invalid.")
+                    raise ValueError("Value is missing or invalid.")
             if usagetype == "Industrial":
                 try:
                     return float(row[5])  
                 except ValueError:
-                    raise ValueError("Per capita value is missing or invalid.")
+                    raise ValueError("Value is missing or invalid.")
             if usagetype == "Household":
                 try:
                     return float(row[6])  
                 except ValueError:
-                    raise ValueError("Per capita value is missing or invalid.")    
+                    raise ValueError("Value is missing or invalid.")    
 
-    raise ValueError("Country, year or usage type not found. Pick another country or pick years from 2000-2024 and make sure you are inputting 'Agriculture', 'Industrial' or 'Household'.")
+    raise ValueError("Country, year or usage type not found. " \
+    "Pick another country or pick years from 2000-2024 and make sure you are inputting 'Agriculture', 'Industrial' or 'Household'.")
 
 if __name__=="__main__":
     main()
