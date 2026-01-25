@@ -40,7 +40,7 @@ def main():
         #FUNCTION 2
         case "percapita":
             if len(sys.argv) != 4:
-                print("Usage: python3 command_line.py perCapita <Country> <Year>")
+                print("Usage: python3 command_line.py perCapita --country --year")
                 return
             try:
                 value = get_per_capita_water_use(sys.argv[2], sys.argv[3])
