@@ -181,7 +181,36 @@ def get_per_capita_water_use(country: str, year: str) -> float:
 
     raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
 
-    
+def get_usage_percentage(country: str, year: str, usagetype) -> float:
+    '''Returns percentage for usage for a given country and year'''
+
+    '''Raises ValueError if country/year not found or year out of range'''
+    if not year.isdigit() or not (2000 <= int(year) <= 2024):
+        raise ValueError("Year must be between 2000 and 2024.")
+
+    country = alias(country)
+    data = openCGWC()
+
+    # Skip header row
+    for row in data[1:]:
+        if row[0] == country and row[1] == year: # match country and year
+            if usagetype == "Agricultural":
+                try:
+                    return float(row[4])  
+                except ValueError:
+                    raise ValueError("Per capita value is missing or invalid.")
+            if usagetype == "Industrial":
+                try:
+                    return float(row[5])  
+                except ValueError:
+                    raise ValueError("Per capita value is missing or invalid.")
+            if usagetype == "Household":
+                try:
+                    return float(row[6])  
+                except ValueError:
+                    raise ValueError("Per capita value is missing or invalid.")    
+
+    raise ValueError("Country, year or usage type not found. Pick another country or pick years from 2000-2024.")
 
 if __name__=="__main__":
     main()
