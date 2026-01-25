@@ -59,13 +59,8 @@ def main():
 
     '''I've mostly just been doing tests here. 
     This whole section is pretty much to make sure the code I'm writing works'''
-    countrydata = loadCountry(openCGWC(),"Argentina")
-    #print(countrydata)
-    yeardata = loadYear(openCGWC(),"2004")
-    #print(yeardata)
-    doubledata = loadYear(loadCountry(openCGWC(),"Argentina"),"2004")
-    #print(doubledata)
-   
+    countrydata = filterTagsDB(DB.CLEANED_GWC,["Argentina","2004"])
+
 
 def openDB(database: DB):
     '''Returns an array for cleaned_global_water_consumption 2.csv'''
@@ -174,7 +169,7 @@ def get_per_capita_water_use(country: str, year: str) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = openCGWC()
+    data = openDB(DB.CLEANED_GWC)
 
     # Skip header row
     for row in data[1:]:
