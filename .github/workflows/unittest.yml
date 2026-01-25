@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        python-version: ["3.13"]
 
     steps:
     - uses: actions/checkout@v5
@@ -16,6 +16,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.x'
-    - run: python -m pip install --upgrade pip unittest
+    - run: python -m pip install --upgrade pip
 
     - run: python -m unittest discover -s Tests
