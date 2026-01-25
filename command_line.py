@@ -67,32 +67,15 @@ def main():
     #print(doubledata)
    
 
-def openCGWC():
+def openDB(database: DB):
     '''Returns an array for cleaned_global_water_consumption 2.csv'''
     arr = []
-    with open('Data/cleaned_global_water_consumption 2.csv',newline='') as csvfile:
+    with open(database,newline='') as csvfile:
         reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
         for row in reader:
             arr.append(row)
         return(arr)    
 
-def openAquastatResources():
-    '''Returns an array for AQUASTA-Water Resources.csv'''
-    arr = []
-    with open('Data/AQUASTA-Water Resources.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
-        for row in reader:
-            arr.append(row)
-        return(arr)
-
-def openAquastatUse():
-    '''Returns an array for AQUASTAT-Water Use.csv'''
-    arr = []
-    with open('Data/AQUASTA-Water Use.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
-        for row in reader:
-            arr.append(row)
-        return(arr)
 
     
 def loadCountry(readera,country):
@@ -137,8 +120,10 @@ def loadDataSparseCountryWaterResource(country: str):
 
 def waterUseTimeCompare(country: str,year1: int,year2: int): ##Work in progress. Pulls from the wrong dataset right now.
     country = alias(country)
-    time1 = loadByTags([str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
-    time2 = loadByTags([str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+
+    time1 = filterTagsDB(DB.AQS_WU,[str(country),str(year1),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+    time2 = filterTagsDB(DB.AQS_WU,[str(country),str(year2),"Exploitable water resources and dam capacity","Total exploitable water resources"])[0]
+
     
     water_use_y1 = time1[6]
     water_use_y2 = time2[6]
@@ -163,21 +148,23 @@ def alias(var: str) -> str:
 
 
     
-def loadByTags(tags: []): 
+def filterByTags(db:[],tags: []): 
     """"""
     arr = []
-    with open('Data/AQUASTAT-Water Resources.csv',newline='') as csvfile:
-        reader = csv.reader(csvfile,delimiter = ',',quotechar="|")
-        for row in reader: # How this works: For every row, assume it by default matches the requested tags. For all requested tags, check if it's in the row. If it's not, set matches to false, and break the loop. If it matches all, adds the row to the array.
-            matches = True
-            for tag in tags:
-                if tag not in row:
-                    matches = False
-                    break
-            if matches:
-                arr.append(row)
+    for row in db: # How this works: For every row, assume it by default matches the requested tags. For all requested tags, check if it's in the row. If it's not, set matches to false, and break the loop. If it matches all, adds the row to the array.
+        matches = True
+        for tag in tags:
+            if tag not in row:
+                matches = False
+                break
+        if matches:
+            arr.append(row)
             
     return arr
+
+def filterTagsDB(database: DB, tags: []):
+    arr = openDB(database)
+    return filterByTags(arr,tags)
 
 def get_per_capita_water_use(country: str, year: str) -> float:
     '''Returns per capita water use (liters per day) for a given country and year'''
