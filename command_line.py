@@ -126,17 +126,15 @@ def get_per_capita_water_use(country: str, year: str) -> float:
         raise ValueError("Year must be between 2000 and 2024.")
 
     country = alias(country)
-    data = openDB(DB.CLEANED_GWC)
+    results = filterTagsDB(DB.CLEANED_GWC, [country, year])
 
-    # Skip header row
-    for row in data[1:]:
-        if row[0] == country and row[1] == year: # match country and year
-            try:
-                return float(row[3])  # 4th column for per capita water use
-            except ValueError:
-                raise ValueError("Per capita value is missing or invalid.")
+    if not results:
+        raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
 
-    raise ValueError("Country or year not found. Pick another country or pick years from 2000-2024.")
+    try:
+        return float(results[0][3])
+    except (ValueError, IndexError):
+        raise ValueError("Per capita value is missing or invalid.")
 
 def get_usage_percentage(country: str, year: str, usagetype) -> float:
     '''Returns percentage for usage for a given country and year'''
