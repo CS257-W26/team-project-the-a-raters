@@ -63,7 +63,7 @@ def main():
 
 
 def openDB(database: DB):
-    '''Returns an array for cleaned_global_water_consumption 2.csv'''
+    '''Returns an array for the spesificed database. EG: openDB(DB.AQS_DS3)'''
     arr = []
     with open(database,newline='') as csvfile:
         reader = csv.reader(csvfile,delimiter = ',',quotechar="|")  
@@ -112,6 +112,7 @@ def filterByTags(db:[],tags: []):
     return arr
 
 def filterTagsDB(database: DB, tags: []):
+    """Takes a database (enum) and an array of string tags. Returns all matches from the spesified DB. EG: filterByTagsDB(DB.CLEANED_GWC,['USA','2001'])"""
     arr = openDB(database)
     return filterByTags(arr,tags)
 
