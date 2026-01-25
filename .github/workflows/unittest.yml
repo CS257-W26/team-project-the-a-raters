@@ -1,4 +1,4 @@
-name: Python package
+name: Unit Test Autorun
 
 on: [push]
 
