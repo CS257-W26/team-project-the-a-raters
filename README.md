@@ -7,8 +7,8 @@ Template for long-term team projects for CS257 Software Design
 ### Feature 1: Identify Proportionality of Country's Water Usage
 This feature allows users to see the breakdown of a country's water usage by sector (Agricultural, Industrial, and Household) for an inputted year.
 
-**Command:** `python3 command_line.py -usagepercentage --country --year`  
-**Example:** `python3 command_line.py -usagepercentage Canada 2024`  
+**Command:** `python3 command_line.py usageProportion --country --year`  
+**Example:** `python3 command_line.py usageProportion Canada`  
 **Output:** Agricultural: 57%, Industrial: 26.7%, Household: 26.4% 
 
 ### Feature 2: Country Per Capita Water Usage
