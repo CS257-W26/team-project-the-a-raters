@@ -167,7 +167,7 @@ def get_usage_percentage(country: str, year: str, usagetype) -> float:
                 except ValueError:
                     raise ValueError("Per capita value is missing or invalid.")    
 
-    raise ValueError("Country, year or usage type not found. Pick another country or pick years from 2000-2024.")
+    raise ValueError("Country, year or usage type not found. Pick another country or pick years from 2000-2024 and make sure you are inputting 'Agriculture', 'Industrial' or 'Household'.")
 
 if __name__=="__main__":
     main()
