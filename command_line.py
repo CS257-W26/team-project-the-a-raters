@@ -48,9 +48,7 @@ def main():
             except ValueError as e:
                 print(e)
         case "-usagepercentage":
-            print(get_usage_percentage("Argentina","2024","Agricultural"))
-            print(get_usage_percentage("Argentina","2024","Industrial"))
-            print(get_usage_percentage("Argentina","2024","Household"))
+            print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
         case _:
             print("USAGE STATEMENT GOES HERE")
             pass
