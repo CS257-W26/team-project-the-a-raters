@@ -47,7 +47,7 @@ def main():
                 print(f"{alias(sys.argv[2])}'s Water Usage per Capita: {round(value, 2)} Liters per day")
             except ValueError as e:
                 print(e)
-        case "usagepercentage":
+        case "-usagepercentage":
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
         case _:
