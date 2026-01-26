@@ -52,8 +52,13 @@ def main():
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
         case "-usageproportion":
-            print(usageProportion(sys.argv[2],sys.argv[3]))
-            return
+            if len(sys.argv) != 4:
+                print("Usage: python3 command_line.py -usageproportion --country --year")
+                return
+            try:
+                print(usageProportion(sys.argv[2],sys.argv[3]))
+            except ValueError as e:
+                print(e)
         case _:
             print("USAGE STATEMENT GOES HERE")
             pass
