@@ -52,7 +52,7 @@ def main():
             print(get_usage_percentage(sys.argv[2],sys.argv[3],sys.argv[4]))
             return
         case "-usageproportion":
-            print(usageProportion(sys.argv[2],sys.argv[3]))
+            usageProportion(sys.argv[2],sys.argv[3])
             return
         case _:
             print("USAGE STATEMENT GOES HERE")
