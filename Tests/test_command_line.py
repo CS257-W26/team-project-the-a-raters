@@ -38,7 +38,7 @@ class commandLineTest(unittest.TestCase):
     def test_run_waterUseTimeCompare(self):
         sys.argv = ['command_line.py','-usageovertime', 'USA', '2001', '2003']
         printed_out = self._run_and_return_output()
-        self.assertEqual(printed_out,"Water usage in United States of America \n\n2001: 1829x10^9 cubic meters/year\n2003: 1829x10^9 cubic meters/year")
+        self.assertEqual(printed_out,"Water usage in United States of America \n\n2001: 1829x10^9 cubic meters/year\n2003: 1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year")
 
     def test_run_waterUseTimeCompare_fail(self):
         sys.argv = ['command_line.py','-usageovertime', 'USA', '2001']
