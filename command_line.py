@@ -59,13 +59,6 @@ def main():
             pass
 
     return
-    waterUseTimeCompare("United States of America",2001,2003)
-
-    '''Main.'''
-
-    '''I've mostly just been doing tests here. 
-    This whole section is pretty much to make sure the code I'm writing works'''
-    countrydata = filterTagsDB(DB.CLEANED_GWC,["Argentina","2004"])
 
 
 def openDB(database: DB):
