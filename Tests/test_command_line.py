@@ -73,17 +73,17 @@ class usagePercentageTest(unittest.TestCase):
     def test_percentage_invalid_country(self):
         '''Test invalid country input'''
         with self.assertRaises(ValueError):
-            get_per_capita_water_use("Wakanda", "2023", "Agricultural")
+            get_usage_percentage("Wakanda", "2023", "Agricultural")
 
     def test_percentage_invalid_year(self):
         '''Test invalid year input'''
         with self.assertRaises(ValueError):
-            get_per_capita_water_use("Argentina", "3023", "Agricultural")
+            get_usage_percentage("Argentina", "3023", "Agricultural")
 
     def test_percentage_invalid_usage_type(self):
         '''Test invalid usage type input'''
         with self.assertRaises(ValueError):
-            get_per_capita_water_use("Argentina", "2023", "Extrajudicial")
+            get_usage_percentage("Argentina", "2023", "Extrajudicial")
 
 if __name__=="__main__":
     main()
