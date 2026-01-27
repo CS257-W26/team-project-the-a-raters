@@ -55,7 +55,7 @@ class CommandLineTest(unittest.TestCase):
         """Basic test run"""
         sys.argv = []
         printed_out = self._run_and_return_output()
-        self.assertEqual(printed_out, "USAGE STATEMENT GOES HERE")
+        self.assertEqual(printed_out, "Usage: python3 command_line.py -usageproportion --country --year")
 
     def test_run_water_use_time_compare(self):
         """Tests water use compare"""
@@ -63,9 +63,7 @@ class CommandLineTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Water usage in United States of America \
-            \\n\n2001: 1829x10^9 cubic meters/year\n2003: \
-            1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year",
+            "Water usage in United States of America \n\n2001: 1829x10^9 cubic meters/year\n2003: 1829x10^9 cubic meters/year\nDifference:\n0x10^9 cubic meters/year",
         )
 
     def test_run_water_use_time_compare_fail(self):
@@ -99,6 +97,7 @@ class PerCapitaWaterUseTest(unittest.TestCase):
             get_per_capita_water_use("Wakanda", "2018")
 
     def test_per_capita_invalid_year(self):
+        """Test invalid year input"""
         with self.assertRaises(ValueError):
             get_per_capita_water_use("Japan", "1000")
 
@@ -140,8 +139,7 @@ class UsageProportionTest(unittest.TestCase):
         printed_out = self._run_and_return_output()
         self.assertEqual(
             printed_out,
-            "Water usage in Argentina in 2024\n\nAgricultural:  \
-            51.20142857\nIndsutrial:  34.14285714\nHousehold:  23.52285714\nNone",
+            "Water usage in Argentina in 2024\n\nAgricultural: 51.2 %\nIndustrial: 34.14 %\nHousehold: 23.52 %\nNone",
         )
 
     def test_proportion_invalid_country(self):
@@ -158,7 +156,8 @@ class UsageProportionTest(unittest.TestCase):
         """Test missing year input"""
         sys.argv = ["command_line.py", "-usageproportion", "Argentina"]
         printed_out = self._run_and_return_output()
-        self.assertRaises(KeyError, printed_out)
+        self.assertEqual(printed_out,"Usage: python3 command_line.py -usageproportion --country --year")
+
 
 
 if __name__ == "__main__":

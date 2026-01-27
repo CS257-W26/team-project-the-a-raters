@@ -106,11 +106,16 @@ def water_use_time_compare(country: str, year1: int, year2: int):
 
     water_use_y1 = time1[6].strip()
     water_use_y2 = time2[6].strip()
+    water_use_time_compare_print(country,year1,year2,water_use_y1,water_use_y2)
+
+
+def water_use_time_compare_print(country,year1,year2,wu1,wu2):
+    """Prints the water use time compare"""
     print("Water usage in " + country, "\n")
-    print(str(year1) + ": " + water_use_y1 + "x10^9 cubic meters/year")
-    print(str(year2) + ": " + water_use_y2 + "x10^9 cubic meters/year")
+    print(str(year1) + ": " + wu1 + "x10^9 cubic meters/year")
+    print(str(year2) + ": " + wu2 + "x10^9 cubic meters/year")
     print("Difference:")
-    print(str(int(water_use_y2) - int(water_use_y1)) + "x10^9 cubic meters/year")
+    print(str(int(wu2) - int(wu1)) + "x10^9 cubic meters/year")
 
 
 def usage_proportion(country, year):
