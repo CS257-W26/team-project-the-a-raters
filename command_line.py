@@ -6,7 +6,7 @@ This will be the entry point for the project when run from the command line.
 import csv
 import sys
 from enum import Enum
-# pylint: disable=unspecified-encoding, raise-missing-from, line-too-long
+
 # FUNCTION 2
 
 # FUNCTION 3
