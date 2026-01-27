@@ -14,7 +14,7 @@ from command_line import main
 from command_line import get_usage_percentage
 from command_line import usage_proportion
 
-# pylint: disable=unspecified-encoding, raise-missing-from, line-too-long
+
 # Running the line above is giving me an error.
 
 
