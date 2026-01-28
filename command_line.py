@@ -52,7 +52,7 @@ def main():
                 print_usage_statement()
                 return
             try:
-                print(usage_proportion(sys.argv[2], sys.argv[3]))
+                usage_proportion(sys.argv[2], sys.argv[3])
             except ValueError as e:
                 print(e)
         case _:
